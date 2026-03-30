@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivação para Todas as Idades - Série de E-books</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Navegação -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <h1>📚 Motivação para Todas as Idades</h1>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="#ebooks">E-books</a></li>
+        <li><a href="/about">Sobre</a></li>
+        <li><a href="/contact">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Descubra Sua Motivação em Qualquer Idade</h1>
+        <p>Uma série completa de e-books inspiradores, adaptados especialmente para cada faixa etária. Encontre motivação, propósito e plenitude em qualquer momento da sua vida.</p>
+        <a href="#ebooks" class="btn btn-primary">Explorar E-books</a>
+      </div>
+      <div class="hero-image">
+        <div class="hero-icon">📖</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de E-books -->
+  <section id="ebooks" class="ebooks-section">
+    <div class="container">
+      <h2>Nossa Série de E-books</h2>
+      <p class="section-subtitle">Encontre o e-book perfeito para sua idade e etapa da vida</p>
+      
+      <div class="ebooks-grid">
+        <% ebooks.forEach(ebook => { %>
+          <div class="ebook-card" style="border-top-color: <%= ebook.color %>">
+            <div class="ebook-icon"><%= ebook.icon %></div>
+            <h3><%= ebook.title %></h3>
+            <p class="ebook-subtitle"><%= ebook.subtitle %></p>
+            <p class="ebook-description"><%= ebook.description %></p>
+            <div class="ebook-meta">
+              <span class="pages"><%= ebook.pages %> páginas</span>
+            </div>
+            <a href="/ebook/<%= ebook.id %>" class="btn btn-secondary">Ver Detalhes</a>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Benefícios -->
+  <section class="benefits-section">
+    <div class="container">
+      <h2>Por Que Ler Estes E-books?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">✨</div>
+          <h3>Conteúdo Adaptado</h3>
+          <p>Cada e-book é especialmente escrito para sua faixa etária, com linguagem e exemplos relevantes.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💡</div>
+          <h3>Exercícios Práticos</h3>
+          <p>Inclui exercícios de reflexão e ação para aplicar imediatamente em sua vida.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📖</div>
+          <h3>Histórias Inspiradoras</h3>
+          <p>Histórias reais de pessoas que superaram desafios e alcançaram seus sonhos.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3>Propósito Claro</h3>
+          <p>Descubra seu propósito e como manter a motivação em qualquer circunstância.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Testemunhos -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2>O Que as Pessoas Dizem</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Esse e-book mudou minha perspectiva sobre motivação. Agora entendo que é algo que cultivo todos os dias."</p>
+          <p class="testimonial-author">- Maria, 16 anos</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Como adulto, achei muito valioso reler sobre propósito e legado. Recomendo para todos."</p>
+          <p class="testimonial-author">- João, 42 anos</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Os exercícios práticos são excelentes. Realmente me ajudaram a refletir sobre minha vida."</p>
+          <p class="testimonial-author">- Ana, 28 anos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Comece Sua Jornada de Motivação Hoje</h2>
+      <p>Baixe seu e-book gratuitamente e descubra o poder da motivação genuína.</p>
+      <a href="#ebooks" class="btn btn-primary btn-large">Explorar E-books Agora</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Sobre</h4>
+          <p>Uma série de e-books inspiradores para motivação em todas as idades.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Sobre</a></li>
+            <li><a href="/contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contato</h4>
+          <p>Email: contato@motivacao-ebooks.com</p>
+          <p>Telefone: (11) 9999-9999</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Motivação para Todas as Idades. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= ebook.title %> - Motivação para Todas as Idades</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Navegação -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <h1>📚 Motivação para Todas as Idades</h1>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#ebooks">E-books</a></li>
+        <li><a href="/about">Sobre</a></li>
+        <li><a href="/contact">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a> / <span><%= ebook.title %></span>
+    </div>
+  </div>
+
+  <!-- Detalhes do E-book -->
+  <section class="ebook-detail">
+    <div class="container">
+      <div class="detail-grid">
+        <!-- Coluna Esquerda - Informações -->
+        <div class="detail-left">
+          <div class="ebook-cover" style="background-color: <%= ebook.color %>">
+            <div class="cover-icon"><%= ebook.icon %></div>
+            <h2><%= ebook.title %></h2>
+            <p><%= ebook.subtitle %></p>
+          </div>
+          
+          <div class="detail-actions">
+            <a href="/download/<%= ebook.pdf %>" class="btn btn-primary btn-large">
+              ⬇️ Baixar E-book (PDF)
+            </a>
+            <a href="/#ebooks" class="btn btn-secondary">
+              ← Voltar para E-books
+            </a>
+          </div>
+
+          <div class="detail-info">
+            <div class="info-item">
+              <span class="info-label">Páginas:</span>
+              <span class="info-value"><%= ebook.pages %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Formato:</span>
+              <span class="info-value">PDF</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Tamanho:</span>
+              <span class="info-value">~340 KB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita - Conteúdo -->
+        <div class="detail-right">
+          <h1><%= ebook.description %></h1>
+          
+          <div class="full-description">
+            <h3>Sobre este E-book</h3>
+            <p><%= ebook.fullDescription %></p>
+          </div>
+
+          <div class="highlights">
+            <h3>Destaques</h3>
+            <ul>
+              <% ebook.highlights.forEach(highlight => { %>
+                <li>✓ <%= highlight %></li>
+              <% }); %>
+            </ul>
+          </div>
+
+          <div class="topics">
+            <h3>Tópicos Abordados</h3>
+            <div class="topics-list">
+              <% ebook.topics.forEach(topic => { %>
+                <span class="topic-tag"><%= topic %></span>
+              <% }); %>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <h3>Pronto para Começar?</h3>
+            <p>Baixe seu e-book agora e comece sua jornada de motivação!</p>
+            <a href="/download/<%= ebook.pdf %>" class="btn btn-primary">
+              Baixar Agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outros E-books -->
+  <section class="other-ebooks">
+    <div class="container">
+      <h2>Outros E-books da Série</h2>
+      <div class="ebooks-grid-small">
+        <% 
+          const otherEbooks = [
+            { id: 'criancas', title: '🌟 Crianças (6-12)', color: '#FFD93D' },
+            { id: 'adolescentes', title: '🚀 Adolescentes (13-17)', color: '#6BCB77' },
+            { id: 'adultos-jovens', title: '💼 Adultos Jovens (18-30)', color: '#4D96FF' },
+            { id: 'adultos', title: '🎯 Adultos (30-50)', color: '#FF6B6B' },
+            { id: 'maturidade', title: '🌅 Maturidade (50+)', color: '#A78BFA' }
+          ].filter(e => e.id !== ebook.id);
+        %>
+        <% otherEbooks.forEach(other => { %>
+          <div class="ebook-card-small" style="border-top-color: <%= other.color %>">
+            <h4><%= other.title %></h4>
+            <a href="/ebook/<%= other.id %>" class="btn btn-small">Ver Detalhes</a>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Sobre</h4>
+          <p>Uma série de e-books inspiradores para motivação em todas as idades.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Sobre</a></li>
+            <li><a href="/contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contato</h4>
+          <p>Email: contato@motivacao-ebooks.com</p>
+          <p>Telefone: (11) 9999-9999</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Motivação para Todas as Idades. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
