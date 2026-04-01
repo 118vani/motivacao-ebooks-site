@@ -1,0 +1,24 @@
+# Robots.txt para Motivação para Todas as Idades
+# Permite que buscadores indexem o site
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /temp
+
+# Sitemap
+Sitemap: https://motivacao-ebooks.com/sitemap.xml
+
+# Crawl delay (em segundos)
+Crawl-delay: 1
+
+# Regras específicas para Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Regras específicas para Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
